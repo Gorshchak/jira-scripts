@@ -1,25 +1,16 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const board = document.querySelector('.ghx-columns');
-    if (board) {
-        board.addEventListener('dragover', function (event) {
-            const targetColumn = event.target.closest('.ghx-column');
-            if (targetColumn) {
-                targetColumn.style.backgroundColor = '#FFD700';  // Замените на желаемый цвет
-            }
+(function ($) {
+    $(document).ready(function () {
+        const taskSelector = '.ghx-issue'; // Элементы задач
+        const columnSelector = '.ghx-column'; // Элементы колонок
+
+        // Добавляем классы при начале перетаскивания
+        $(taskSelector).on('dragstart', function () {
+            $(columnSelector).addClass('highlight-column');
         });
 
-        board.addEventListener('dragleave', function (event) {
-            const targetColumn = event.target.closest('.ghx-column');
-            if (targetColumn) {
-                targetColumn.style.backgroundColor = '';  // Возвращает стандартный цвет
-            }
+        // Удаляем классы при завершении перетаскивания
+        $(taskSelector).on('dragend', function () {
+            $(columnSelector).removeClass('highlight-column');
         });
-
-        board.addEventListener('drop', function (event) {
-            const targetColumn = event.target.closest('.ghx-column');
-            if (targetColumn) {
-                targetColumn.style.backgroundColor = '';  // Возвращает стандартный цвет
-            }
-        });
-    }
-});
+    });
+})(jQuery);
