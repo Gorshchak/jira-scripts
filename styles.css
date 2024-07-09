@@ -1,4 +1,5 @@
-/* Basic CSS required to fill the mandatory field */
-body {
-    font-family: Arial, sans-serif;
+/* CSS для подсветки колонок */
+.ghx-column.highlight-column {
+    background-color: #e0f7fa; /* Цвет подсветки */
+    border: 2px solid #00acc1; /* Рамка */
 }
